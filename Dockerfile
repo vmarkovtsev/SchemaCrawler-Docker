@@ -24,8 +24,12 @@
 #
 # ========================================================================
 
+# ------------------------------------------------------------------------
+# This Dockerfile builds a SchemaCrawler Docker image from a SchemaCrawler 
+# release.
+# ------------------------------------------------------------------------
 
-FROM openjdk
+FROM openjdk:8-jdk
 
 ARG SCHEMACRAWLER_VERSION=14.20.03
 
@@ -36,8 +40,14 @@ LABEL "us.fatehi.schemacrawler.product-version"="SchemaCrawler ${SCHEMACRAWLER_V
 # Install GraphViz
 RUN \
     apt-get update \
- && apt-get install -y graphviz \
+ && apt-get install -y -q vim \
+ && apt-get install -y -q graphviz \
  && rm -rf /var/lib/apt/lists/*
+
+# Run the image as a non-root user
+RUN useradd -ms /bin/bash schemacrawler
+USER schemacrawler
+WORKDIR /home/schemacrawler
 
 # Download SchemaCrawler and prepare install directories
 RUN \
@@ -48,7 +58,7 @@ RUN \
  && rm schemacrawler-"$SCHEMACRAWLER_VERSION"-distribution.zip \
  && rm -rf schemacrawler-"$SCHEMACRAWLER_VERSION"-distribution
 
-WORKDIR schemacrawler
+WORKDIR /home/schemacrawler/schemacrawler
 
 MAINTAINER Sualeh Fatehi <sualeh@hotmail.com>
 
