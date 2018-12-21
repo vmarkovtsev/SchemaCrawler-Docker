@@ -6,6 +6,8 @@ os:
 sudo: required
 services:
   - docker
+env:
+  - DOCKER_USERNAME=schemacrawler
 script:
   - echo "Building Docker image"
 before_deploy:
