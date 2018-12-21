@@ -1,6 +1,12 @@
-## Docker Image for SchemaCrawler
+# ![SchemaCrawler](https://github.com/schemacrawler/SchemaCrawler/raw/master/schemacrawler-docs/logo/schemacrawler_logo.png?raw=true) Docker Image for SchemaCrawler
 
-> Please see the [SchemaCrawler website](https://www.schemacrawler.com/).
+> **Please see the [SchemaCrawler website](http://www.schemacrawler.com/) for more details.**
+
+## About
+
+SchemaCrawler is a free database schema discovery and comprehension tool. SchemaCrawler is available under a number of [licenses](http://sualeh.github.io/SchemaCrawler/license.html).
+
+This project provides an Docker image for SchemaCrawler. 
 
 ### Use the SchemaCrawler Interactive Shell
 
@@ -13,7 +19,7 @@ docker run \
 schemacrawler/schemacrawler
 ```
 
-From within the shell, type `help` for a list of commands.
+From within the shell, type `help` for a list of commands. See [information on how to use SchemaCrawler Interactive Shell](https://www.schemacrawler.com/schemacrawler-shell.html) on the SchemaCrawler website.
 
 Use the following script from within the shell to create a sample diagram
 ```
