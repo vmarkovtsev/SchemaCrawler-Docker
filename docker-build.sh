@@ -6,7 +6,7 @@ echo "Creating SchemaCrawler Docker container"
 SCHEMACRAWLER_VERSION=15.03.02
 
 # Create SchemaCrawler distribution
-./schemacrawler-distrib.sh
+./schemacrawler-distribution.sh
 
 # Print Docker version
 pwd
