@@ -1,10 +1,8 @@
 #!/bin/bash
 
-# ## DISTRIBUTION
-echo "** Setting up SchemaCrawler distribution"
-
 SCHEMACRAWLER_VERSION=15.03.02
-echo "SchemaCrawler v$SCHEMACRAWLER_VERSION"
+
+echo "echo "** Setting up SchemaCrawler v$SCHEMACRAWLER_VERSION distribution"
 
 # Download SchemaCrawler distribution
 echo "Downloading SchemaCrawler distribution"
@@ -37,3 +35,6 @@ cd "$SC_DIR"
 
 rm ./_schemacrawler/lib/slf4j-jdk14-*.jar
 cp ./examples/shell/schemacrawler-shell.* ./_schemacrawler
+
+echo "Done"
+
