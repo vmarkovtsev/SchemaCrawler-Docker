@@ -8,7 +8,9 @@ SchemaCrawler is a free database schema discovery and comprehension tool. Schema
 
 This project provides an Docker image for SchemaCrawler. 
 
-### Use the SchemaCrawler Interactive Shell
+-------
+
+## Use the SchemaCrawler Interactive Shell
 
 Start the SchemaCrawler Interactive Shell in the Docker container like this
 ```
@@ -30,7 +32,9 @@ execute -command schema -o /share/sc_db.png
 The image exports a volume called `/share`, and you can map it to your local directory. 
 
 
-### Run the SchemaCrawler Command-line
+-------
+
+## Run the SchemaCrawler Command-line
 
 Check that the Docker image for SchemaCrawler has been installed correctly, first start
 the Docker container
@@ -53,10 +57,9 @@ The image exports a volume called `/share`, and you can map it to your local dir
 
 Exit the Docker container for SchemaCrawler, and look at the `sc_db.png` file in your local directory on the host.
 
+-------
 
-### Examples
-
-#### Run SchemaCrawler With a Modified Configuration
+## How to Run SchemaCrawler With a Modified Configuration
 
 Run the SchemaCrawler Docker image using the command above, to get a new container, with a command shell. 
 
@@ -74,7 +77,7 @@ schemacrawler \
 -outputfile=/share/sc_db.png
 ```
 
-#### Run SchemaCrawler Against Microsoft SQL Server on Amazon RDS
+## How to SchemaCrawler Against Microsoft SQL Server on Amazon RDS
 
 Here is an example of how to connect to Microsoft SQL Server on Amazon RDS. 
 
@@ -89,7 +92,7 @@ schemacrawler \
 -infolevel=minimum -command=list
 ```
 
-#### Run SchemaCrawler Against PostgreSQL Running in Another Docker Container
+## How to SchemaCrawler Against PostgreSQL Running in Another Docker Container
 
 Follow instructions on [Docker Hub for running a PostgreSQL container](https://hub.docker.com/_/postgres/).
 
