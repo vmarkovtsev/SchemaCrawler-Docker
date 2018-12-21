@@ -1,3 +1,6 @@
+schemacrawler-*-distribution.zip
+schemacrawler-distribution/
+schemacrawler-*-distribution/
 target/
 pom.xml.tag
 pom.xml.releaseBackup
