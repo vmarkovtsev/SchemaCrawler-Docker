@@ -25,3 +25,4 @@ docker logout
 
 # Remove local image
 # docker rm schemacrawler/schemacrawler
+
