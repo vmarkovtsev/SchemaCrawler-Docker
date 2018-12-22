@@ -24,14 +24,14 @@
 #
 # ========================================================================
 
-
 FROM openjdk:8-jre
 
 ARG SCHEMACRAWLER_VERSION=15.03.02
 
-LABEL "us.fatehi.schemacrawler.product-version"="SchemaCrawler ${SCHEMACRAWLER_VERSION}" \
-      "us.fatehi.schemacrawler.website"="http://www.schemacrawler.com" \
-      "us.fatehi.schemacrawler.docker-hub"="https://hub.docker.com/r/schemacrawler/schemacrawler"
+LABEL \
+  "us.fatehi.schemacrawler.product-version"="SchemaCrawler ${SCHEMACRAWLER_VERSION}" \
+  "us.fatehi.schemacrawler.website"="http://www.schemacrawler.com" \
+  "us.fatehi.schemacrawler.docker-hub"="https://hub.docker.com/r/schemacrawler/schemacrawler"
 
 # Install GraphViz
 RUN \
@@ -41,22 +41,27 @@ RUN \
  && rm -rf /var/lib/apt/lists/*
 
 # Copy SchemaCrawler distribution from the local build
-COPY ./schemacrawler-${SCHEMACRAWLER_VERSION}-distribution/_schemacrawler /opt/schemacrawler
-RUN chmod +rx /opt/schemacrawler/schemacrawler.sh
-RUN chmod +rx /opt/schemacrawler/schemacrawler-shell.sh
+COPY \
+    ./schemacrawler-${SCHEMACRAWLER_VERSION}-distribution/_schemacrawler /opt/schemacrawler
+RUN \
+    chmod +rx /opt/schemacrawler/schemacrawler.sh \
+ && chmod +rx /opt/schemacrawler/schemacrawler-shell.sh
 
 # Run the image as a non-root user
-RUN useradd -ms /bin/bash schemacrawler
+RUN \
+    useradd -ms /bin/bash schemacrawler
 USER schemacrawler
 WORKDIR /home/schemacrawler
 
 # Copy configuration files for the current user
-COPY --chown=schemacrawler:schemacrawler \
-     ./schemacrawler-${SCHEMACRAWLER_VERSION}-distribution/_testdb/sc.db \
-     /home/schemacrawler/sc.db
-COPY --chown=schemacrawler:schemacrawler \
-     ./schemacrawler-${SCHEMACRAWLER_VERSION}-distribution/_schemacrawler/config/* \
-     /home/schemacrawler/
+COPY \
+    --chown=schemacrawler:schemacrawler \
+    ./schemacrawler-${SCHEMACRAWLER_VERSION}-distribution/_testdb/sc.db \
+    /home/schemacrawler/sc.db
+COPY \
+    --chown=schemacrawler:schemacrawler \
+    ./schemacrawler-${SCHEMACRAWLER_VERSION}-distribution/_schemacrawler/config/* \
+    /home/schemacrawler/
 
 # Create aliases for SchemaCrawler
 RUN \
