@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # ## DOCKER
 echo "Creating SchemaCrawler Docker container"
