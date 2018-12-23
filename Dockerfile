@@ -24,7 +24,7 @@
 #
 # ========================================================================
 
-FROM openjdk:8-jre
+FROM openjdk:8-jdk-alpine
 
 ARG SCHEMACRAWLER_VERSION=15.03.02
 
@@ -35,10 +35,11 @@ LABEL \
 
 # Install GraphViz
 RUN \
-    apt-get -y -q update \
- && apt-get -y -q install vim \
- && apt-get -y -q install graphviz \
- && rm -rf /var/lib/apt/lists/*
+  apk add --update --no-cache \
+  bash \
+  bash-completion \
+  graphviz \
+  ttf-freefont
 
 # Copy SchemaCrawler distribution from the local build
 COPY \
@@ -49,27 +50,29 @@ RUN \
 
 # Run the image as a non-root user
 RUN \
-    useradd -ms /bin/bash schemacrawler
-USER schemacrawler
-WORKDIR /home/schemacrawler
+    addgroup -g 1000 -S schcrwlr \
+ && adduser -u 1000 -S schcrwlr -G schcrwlr
+USER schcrwlr
+WORKDIR /home/schcrwlr
 
 # Copy configuration files for the current user
 COPY \
-    --chown=schemacrawler:schemacrawler \
+    --chown=schcrwlr:schcrwlr \
     ./schemacrawler-${SCHEMACRAWLER_VERSION}-distribution/_testdb/sc.db \
-    /home/schemacrawler/sc.db
+    /home/schcrwlr/sc.db
 COPY \
-    --chown=schemacrawler:schemacrawler \
+    --chown=schcrwlr:schcrwlr \
     ./schemacrawler-${SCHEMACRAWLER_VERSION}-distribution/_schemacrawler/config/* \
-    /home/schemacrawler/
+    /home/schcrwlr/
 
 # Create aliases for SchemaCrawler
 RUN \
     echo 'alias schemacrawler="/opt/schemacrawler/schemacrawler.sh"' \
-    >> /home/schemacrawler/.bashrc
+    >> /home/schcrwlr/.bashrc
 RUN \
     echo 'alias schemacrawler-shell="/opt/schemacrawler/schemacrawler-shell.sh"' \
-    >> /home/schemacrawler/.bashrc
+    >> /home/schcrwlr/.bashrc
 
 
 MAINTAINER Sualeh Fatehi <sualeh@hotmail.com>
+
