@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-SCHEMACRAWLER_VERSION=15.03.02
+SCHEMACRAWLER_VERSION=15.03.03
 
 echo "** Setting up SchemaCrawler v$SCHEMACRAWLER_VERSION distribution"
 
@@ -20,6 +20,7 @@ chmod +x ./download.sh
 
 ./download.sh shell
 ./download.sh offline
+./download.sh plugins
 
 ./download.sh postgresql-embedded
 
