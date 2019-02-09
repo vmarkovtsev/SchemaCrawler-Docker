@@ -14,6 +14,7 @@ cache:
   directories:
     - .autoconf
     - $HOME/.m2
+    - $HOME/.ivy2    
 script:
 - echo "Building Docker image"
 before_deploy:
