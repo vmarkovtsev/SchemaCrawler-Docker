@@ -29,7 +29,6 @@ chmod +x ./download.sh
 
 ./download.sh velocity
 ./download.sh thymeleaf
-./download.sh freemarker
 ./download.sh mustache
 
 # Additional setup
