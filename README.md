@@ -1,10 +1,8 @@
 [![Build Status](https://travis-ci.org/schemacrawler/SchemaCrawler-Docker.svg?branch=master)](https://travis-ci.org/schemacrawler/SchemaCrawler-Docker)
-
 [![Docker Pulls](https://img.shields.io/docker/pulls/schemacrawler/schemacrawler.svg)](https://hub.docker.com/r/schemacrawler/schemacrawler/)
 
 
-
-# ![SchemaCrawler](https://github.com/schemacrawler/SchemaCrawler/raw/master/schemacrawler-docs/logo/schemacrawler_logo.png?raw=true) SchemaCrawler - Docker Image
+# ![SchemaCrawler](https://github.com/schemacrawler/SchemaCrawler/raw/master/schemacrawler-docs/logo/schemacrawler_logo.png?raw=true) Docker Image for SchemaCrawler
 
 > **Please see the [SchemaCrawler website](http://www.schemacrawler.com/) for more details.**
 
