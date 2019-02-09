@@ -19,7 +19,6 @@ pwd
 chmod +x ./download.sh
 
 ./download.sh shell
-./download.sh offline
 ./download.sh plugins
 
 ./download.sh postgresql-embedded
@@ -30,6 +29,8 @@ chmod +x ./download.sh
 
 ./download.sh velocity
 ./download.sh thymeleaf
+./download.sh freemarker
+./download.sh mustache
 
 # Additional setup
 echo "Performing additional setup of distribution"
