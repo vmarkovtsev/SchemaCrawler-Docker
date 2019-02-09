@@ -4,7 +4,7 @@ set -e
 # ## DOCKER
 echo "Creating SchemaCrawler Docker container"
 
-SCHEMACRAWLER_VERSION=15.03.04
+SCHEMACRAWLER_VERSION=15.04.01
 
 # Create SchemaCrawler distribution
 ./schemacrawler-distribution.sh
