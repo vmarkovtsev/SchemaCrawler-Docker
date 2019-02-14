@@ -140,3 +140,16 @@ schemacrawler \
 -outputformat=png \
 -o /share/schema.png
 ```
+
+
+-------
+## How to Extend the SchemaCrawler Docker Image
+
+The SchemaCrawler Docker image can be extended to include any additional local jar files, such as proprietary JDBC drivers that cannot be publicly distributed. The following procedure is intended for privately built Docker images.
+
+1. Create a Dockerfile using this template Gist.
+2. Include any additional jar files in the project directory.
+3. In the directory containing your Docker file, run
+```
+docker build -t schemacrawler/schemacrawler-extension:latest .
+```
