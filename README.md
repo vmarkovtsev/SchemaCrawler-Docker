@@ -149,7 +149,4 @@ The SchemaCrawler Docker image can be extended to include any additional local j
 
 1. Create a Dockerfile using [this template](https://gist.github.com/sualeh/761e808f2803bba8e6f003e3276cf6e3).
 2. Include any additional jar files in the project directory.
-3. In the directory containing your Docker file, run
-```
-docker build -t schemacrawler/schemacrawler-extension:latest .
-```
+3. In the directory containing your Docker file, run [the Docker build command](https://docs.docker.com/engine/reference/commandline/build/).
