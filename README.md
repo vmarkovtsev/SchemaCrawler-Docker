@@ -147,7 +147,8 @@ schemacrawler \
 
 The SchemaCrawler Docker image can be extended to include any additional local jar files, such as proprietary JDBC drivers that cannot be publicly distributed. The following procedure is intended for privately built Docker images.
 
-1. Create a Dockerfile using this template Gist.
+1. Create a Dockerfile using this template:
+<script src="https://gist.github.com/sualeh/761e808f2803bba8e6f003e3276cf6e3.js"></script>
 2. Include any additional jar files in the project directory.
 3. In the directory containing your Docker file, run
 ```
