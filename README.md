@@ -52,7 +52,7 @@ schemacrawler/schemacrawler
 
 Then, run SchemaCrawler from the command-line within the container, like this
 ```
-schemacrawler \
+/opt/schemacrawler/schemacrawler.sh \
 -server=sqlite -user= -password= -database=sc.db \
 -infolevel=maximum -command=schema \
 -outputfile=/share/sc_db.png
